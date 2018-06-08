@@ -81,8 +81,6 @@ if __name__ == '__main__':
         assert argv[1] == 'config', "Use 'config' to customize the parameters."
 
         file_prefix = input('File prefix: (Enter to use folder name)\n') or file_prefix
-        error_msg = 'File prefix must start with a letter.'
-        assert file_prefix == '' or file_prefix[0] in string.ascii_letters, error_msg
         
         start_number = input('Start number: (Enter to use 0)\n') or str(start_number)
         error_msg = 'Start number must be a positive integer.'
