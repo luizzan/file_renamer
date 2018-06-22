@@ -27,6 +27,12 @@ def main(file_prefix='', start_number=0):
         subfolder_file_prefix = file_prefix + '_' + subfolder
         subfolder_path = os.path.join(os.getcwd(), subfolder)
         initial_file_count += _rename_files(subfolder_path, subfolder_file_prefix)
+
+        # Delete remaining hidden files
+        for f in os.listdir(subfolder_path):
+            os.remove(os.path.join(subfolder_path, f))
+
+        # Delete subfolder
         os.rmdir(subfolder)
 
     final_files = [f for f in os.listdir() if os.path.isfile(f) and not f.startswith('.') and f != argv[0]]
