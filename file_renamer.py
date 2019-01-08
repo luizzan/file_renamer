@@ -55,6 +55,7 @@ def _rename_files(folder_path, file_prefix, start_number=0):
         file_path = os.path.join(folder_path, f)
         if os.path.isfile(file_path) and not f.startswith('.') and f != argv[0]:
             file_list.append(file_path)
+    file_list = sorted(file_list)
     initial_count = len(file_list)
     print('Renaming {} files in {}.'.format(initial_count, folder_name))
 
